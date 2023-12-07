@@ -49,7 +49,6 @@ export default async function Home({ params, searchParams }: Props) {
   if (!page) {
     return (
       <div className="w-full h-full flex flex-col">
-        <Header />
         <main className="flex justify-center items-center w-full h-full">
           <h2 className="text-3xl text-gray-600">Error while fetching results</h2>
         </main>
