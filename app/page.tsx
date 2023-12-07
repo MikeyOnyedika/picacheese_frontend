@@ -74,7 +74,7 @@ export default async function Home({ params, searchParams }: Props) {
           {
             albums.map(album => {
               return (
-                <Card url={`/albums/${album.title}`} title={album.title} description={album.description} photoCount={album.images.length} />
+                <Card key={album.id} url={`/albums/${album.title}`} title={album.title} description={album.description} photoCount={album.images.length} />
               )
             })
           }
