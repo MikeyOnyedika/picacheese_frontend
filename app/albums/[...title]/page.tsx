@@ -17,7 +17,7 @@ export default async function Album({ params }: Props) {
     ...al,
     images: (al.images.data || []).map((image: any) => ({
       id: image.id,
-      url: `${process.env.NEXT_PUBLIC_IMAGE_BASE}${image.attributes.url}`,
+      url: image.attributes.url,
       width: image.attributes.formats.medium.width,
       height: image.attributes.formats.medium.height,
     })),
@@ -33,17 +33,20 @@ export default async function Album({ params }: Props) {
         {album.images.length === 0 ? (
           <p>No images</p>
         ) : (
-          album.images.map((image) => (
-            <div className="" key={image.id}>
-              <Image
-                className="aspect-auto"
-                src={image.url}
-                alt={`${params.title} image`}
-                width={image.width}
-                height={image.height}
-              />
-            </div>
-          ))
+          album.images.map((image) => {
+            console.log(image);
+            return (
+              <div className="" key={image.id}>
+                <Image
+                  className="aspect-auto"
+                  src={image.url}
+                  alt={`${params.title} image`}
+                  width={image.width}
+                  height={image.height}
+                />
+              </div>
+            );
+          })
         )}
       </div>
     </section>
